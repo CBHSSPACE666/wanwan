@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>恶搞提问</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .question {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        .btn {
+            padding: 15px 30px;
+            margin: 0 15px;
+            font-size: 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #yesBtn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="question">常宝恒可以做你父亲吗?</div>
+    <div class="buttons">
+        <button class="btn" id="yesBtn">可以</button>
+        <button class="btn" id="noBtn">不可以</button>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        let size = 1; // 初始缩放比例
+
+        noBtn.addEventListener('click', () => {
+            size += 0.2; // 每次点击放大20%
+            yesBtn.style.transform = `scale(${size})`;
+            // 同步增加内边距，避免文字挤在一起
+            yesBtn.style.padding = `${15 * size}px ${30 * size}px`;
+            yesBtn.style.fontSize = `${20 * size}px`;
+        });
+
+        // 点击“可以”按钮的反馈（可选，可自行修改）
+        yesBtn.addEventListener('click', () => {
+            alert('乖儿子！');
+        });
+    </script>
+</body>
+</html>
